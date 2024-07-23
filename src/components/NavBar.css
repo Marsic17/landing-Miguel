@@ -36,12 +36,12 @@
 
 .NavBar .nav-links a {
   text-decoration: none;
-  color: #007bff;
+  color: #217a5f;
   font-size: 16px;
 }
 
 .NavBar .nav-links a:hover {
-  color: #0056b3; 
+  color: #84e9ec; 
 }
 
 /* Estilo para el carrito */
@@ -62,7 +62,7 @@
   position: absolute;
   top: -2px;
   right: 25px;
-  background-color: #007bff;
+  background-color: #1bb69c;
   color: #fff;
   border-radius: 73%;
   padding: 4px 8px;

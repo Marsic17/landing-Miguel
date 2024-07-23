@@ -46,7 +46,7 @@
 
 .add-to-cart-button, .view-details-button {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #0ebdb4;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -56,7 +56,7 @@
 }
 
 .add-to-cart-button:hover, .view-details-button:hover {
-  background-color: #0056b3;
+  background-color: #0e9b83;
 }
 
 @media (max-width: 1200px) {

@@ -18,9 +18,9 @@ const CheckOut = ({ cart = [], clearCart }) => {
 
   return (
     <div className="checkOut-container">
-      <h2>Resumen del Pedido</h2>
+      <h2>carrito de compras</h2>
       {cart.length === 0 ? (
-        <p>Tu carrito está vacío.</p>
+        <p>no tienes nada en tu carrito.</p>
       ) : (
         <div className="checkOutDetails">
           <ul className="checkOutList">

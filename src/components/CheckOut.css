@@ -1,6 +1,7 @@
 .checkOut-container {
   padding: 20px;
   margin: 0 auto;
+  margin-top: 25px;
 }
 
 .checkOutDetails {
@@ -47,7 +48,7 @@
 
 .clearCartButton, .checkOutButton {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #058f55;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -58,14 +59,14 @@
 }
 
 .clearCartButton:hover, .checkOutButton:hover {
-  background-color: #0056b3;
+  background-color: #0dad7d;
 }
 
 .home {
   display: block;
   margin-top: 20px;
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #0b976d;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -75,7 +76,7 @@
 }
 
 .home:hover {
-  background-color: #0056b3;
+  background-color: #0db67e;
 }
 
   
