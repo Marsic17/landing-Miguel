@@ -1,23 +1,35 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-// import ItemCount from './components/ItemCount/ItemCount.js'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CheckOut from './components/CheckOut';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
-    <div className="App">
-      <BrowserRouter>
-      <NavBar /> 
+    <Router>
+      <NavBar cartItems={cart.length} />
       <Routes>
-      <Route path='/' element={<ItemListContainer />} />
-      <Route path='/category/:categoryId' element={<ItemListContainer />} />
-      <Route path='/Item/:ItemId' element={<ItemDetailContainer />} />
-      <Route path='*' element={<h1>404 not found</h1>} />
+        <Route path='/' element={<ItemListContainer addToCart={addToCart} />} />
+        <Route path='/category/:categoryId' element={<ItemListContainer addToCart={addToCart} />} />
+        <Route path='/Item/:ItemId' element={<ItemDetailContainer addToCart={addToCart} />} />
+        <Route path="/checkOut" element={<CheckOut cart={cart} clearCart={clearCart} />} />
+        <Route path='*' element={<h1>404 not found</h1>} />
       </Routes>
-      </BrowserRouter>
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;
+
