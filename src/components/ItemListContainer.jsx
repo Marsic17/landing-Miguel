@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import './ItemListContainer.css';
 import { useParams, Link } from "react-router-dom";
+import { CartContext } from "./context/CartContext";
 
 const fetchProducts = (category) => {
     return new Promise((resolve) => {
@@ -23,6 +24,7 @@ const fetchProducts = (category) => {
 };
 
 const ItemListContainer = ({ addToCart }) => {
+    const {setCartCount, cartCount} = useContext(CartContext)
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
@@ -39,11 +41,14 @@ const ItemListContainer = ({ addToCart }) => {
         return <div className="loading">Espere por favor</div>;
     }
 
+
     return (
         <div className="ItemsOnList">
             <h2>Productos</h2>
             <div className="infoBasicProd">
+                
                 {products.map(product => (
+                  
                     <div key={product.id} className="CardProd">
                         <img src={product.img} alt={product.name} className="ImageProd" />
                         <div className="InfoProd">
@@ -51,7 +56,7 @@ const ItemListContainer = ({ addToCart }) => {
                             <p className="DescriptionProd">{product.description}</p>
                             <p className="PriceProd">${product.price}</p>
                             <div className="ActionsProd">
-                                <button onClick={() => addToCart(product)} className="add-to-cart-button">Añadir al carrito</button>
+                                <button onClick={() => {addToCart(product); setCartCount(cartCount + 1)}} className="add-to-cart-button">Añadir al carrito</button>
                                 <Link to={`/Item/${product.id}`} className="view-details-button">Descripción</Link>
                             </div>
                         </div>

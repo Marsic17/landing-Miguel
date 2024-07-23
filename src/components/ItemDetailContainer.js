@@ -13,7 +13,7 @@ const fetchProduct = (id) => {
         {id: '5', name: 'ASUS TUF Gaming A15', price: 650, category: 'laptop', img: 'https://m.media-amazon.com/images/I/81kxce-AlLL.__AC_SX300_SY300_QL70_FMwebp_.jpg', stock: 12, description: 'laptop'},
         {id: '6', name: 'HyperX Cloud II', price: 90, category: 'accessories', img: 'https://m.media-amazon.com/images/I/71u77S3CdSL._AC_SY879_.jpg', stock: 22, description: 'audifonos hyperx'}
       ];
-      resolve(allProducts.find(product => product.id === parseInt(id)));
+      resolve(allProducts.find(product => product.id = parseInt(id)));
     }, 500);
   });
 };
@@ -22,7 +22,8 @@ const ItemDetailContainer = ({ addToCart }) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { itemId } = useParams();
-
+  
+console.log(itemId);
   useEffect(() => {
     setLoading(true);
     fetchProduct(itemId).then((data) => {
@@ -34,27 +35,29 @@ const ItemDetailContainer = ({ addToCart }) => {
   if (loading) {
     return <div className="loading">espere por favor</div>;
   }
+  console.log(product);
 
   return (
+    <>
+      <h2 style={{marginTop:"60px"}}>Products</h2>
     <div className="ItemsOnList">
-      <h2>Products</h2>
       <div className="infoBasicProd">
         {product ? (
           <div key={product.id} className="CardProd">
-            <img src={product.imageUrl} alt={product.name} className="ImageProd" />
+            <img src={product.img} alt={product.name} className="ImageProd" />
             <div className="InfoProd">
               <h3 className="NameProd">{product.name}</h3>
               <p className="DescriptionProd">{product.description}</p>
               <p className="PriceProd">${product.price}</p>
               <div className="ActionsProd">
-                <button onClick={() => addToCart(product)} className="add-to-cart-button">Añadir al carrito</button>
-                <Link to={`/item/${product.id}`} className="view-details-button">descripcion</Link>
+                <Link to={`/`} className="view-details-button">volver al inicio</Link>
               </div>
             </div>
           </div>
         ) : null}
       </div>
     </div>
+    </>
   );
 };
 

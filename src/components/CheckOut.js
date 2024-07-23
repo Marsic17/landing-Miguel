@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CheckOut.css';
+import { CartContext } from './context/CartContext';
+import { useContext } from 'react';
 
 const CheckOut = ({ cart = [], clearCart }) => {
+  const {setCartCount} = useContext(CartContext)
   const calculateTotal = () => {
     return cart.reduce((total, product) => total + product.price, 0).toFixed(2);
   };
 
   const handleClearCart = () => {
+    setCartCount(0)
     clearCart();
+
   };
 
   return (
@@ -19,9 +24,11 @@ const CheckOut = ({ cart = [], clearCart }) => {
       ) : (
         <div className="checkOutDetails">
           <ul className="checkOutList">
+            {console.log(cart)}
             {cart.map((product) => (
+              
               <li key={product.id} className="checkOutItem">
-                <img src={product.imageUrl} alt={product.name} className="checkOutImage" />
+                <img src={product.img} alt={product.name} className="checkOutImage" />
                 <div className="checkOutInfo">
                   <h3 className="checkOutName">{product.name}</h3>
                   <p className="checkOutDescription">{product.description}</p>

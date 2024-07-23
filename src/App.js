@@ -18,6 +18,7 @@ const App = () => {
     };
 
     return (
+        
         <Router>
             <NavBar cartItems={cart.length} />
             <Routes>
@@ -28,7 +29,9 @@ const App = () => {
                 <Route path='*' element={<h1>404 not found</h1>} />
             </Routes>
         </Router>
+       
     );
 };
 
 export default App;
+
