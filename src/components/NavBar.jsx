@@ -13,7 +13,7 @@ const NavBar = () => {
                 <NavLink to={`/category/componentes de pc`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Componentes de PC</NavLink>
                 <NavLink to={`/category/accesorios`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Accesorios</NavLink>
             </div>
-            <div className="cart-icon">
+            <div className="cartIcon">
                 <CartWidget />
             </div>
         </nav>

@@ -53,7 +53,7 @@
   }
   
   /* Estilo para la imagen del carrito */
-  .NavBar .cart-img {
+  .NavBar .cart {
     width: 25%; 
     height: auto;
   }

@@ -1,14 +1,15 @@
-import cart from './cart.png'
 import React from 'react';
+import cart from './cart.png'; 
+import './CartWidget.css';
 
-const CartWidget =() => {
-    const cartItems = 0;
-    return (
-        <div className='cartIcon'>
-            <img src={cart} alt="cart-widget" className='cart-img'/>
-            {cartItems > 0 && <span className="cart-push">{cartItems}</span>}
-        </div>
-    )
-}
+const CartWidget = () => {
+  const cartItems = 0; 
+  return (
+    <div className="cart-widget">
+      <img src={cart} alt="Carrito" className="cartIcon" />
+      {cartItems > 0 && <span className="cart-notification">{cartItems}</span>}
+    </div>
+  );
+};
 
-export default CartWidget
+export default CartWidget;
